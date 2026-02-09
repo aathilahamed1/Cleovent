@@ -1,240 +1,137 @@
-# Cleovent - Quick Start Guide
+🌍 Cleovent
+Digital Twin for CO₂ Capture in Urban Settings
 
-## 🚀 Running the Application
+Cleovent is a software-based digital twin platform that simulates CO₂ emissions, dispersion, and carbon capture strategies in urban environments.
+It enables cities and planners to test, compare, and optimize carbon reduction interventions virtually before real-world deployment.
 
-### Development Mode
-```bash
-cd "c:\Project\Co2 Final"
-npm run dev
-```
-Opens at: `http://localhost:5173`
+🚨 Problem Statement
 
-### Production Build
-```bash
-npm run build
-```
-Creates optimized build in `dist/` folder
+Urban areas are major contributors to global CO₂ emissions due to:
 
-### Preview Production Build
-```bash
-npm run preview
-```
+Traffic congestion
 
-## 📁 Project Overview
+Industrial activity
 
-**What You Have**: Cleovent - A full-stack responsive web application for simulating CO₂ emissions across Tamil Nadu and testing carbon capture interventions.
+Dense population clusters
 
-**Tech Stack**:
-- React 18 + Vite
-- React Router v6
-- Chart.js for visualizations
-- Vanilla CSS with design system
+Despite the availability of carbon capture solutions, cities lack predictive tools to:
 
-## 🎯 Key Features
+Identify CO₂ hotspots accurately
 
-### 1. Landing Page (`/`)
-- Hero with animated city illustration
-- Problem statement with statistics
-- Feature overview
-- Target user personas
-- Call-to-action buttons
+Evaluate intervention effectiveness beforehand
 
-### 2. Dashboard (`/dashboard`)
+Optimize placement and scale of capture infrastructure
 
-#### 🗺️ City Map Tab
-- Interactive canvas-based city with 10 zones
-- Click zones to select and view details
-- Toggle CO₂ concentration heatmap
-- Real-time emission display per zone
+This results in high costs, inefficient deployment, and uncertain outcomes.
 
-#### 📊 Emissions Tab
-- Control 4 emission sources with sliders:
-  - 🚗 Transport
-  - 🏭 Industry
-  - 🏠 Residential
-  - 🏢 Commercial
-- Set wind direction (8 directions)
-- Adjust wind speed (0-20 m/s)
-- View total emissions breakdown
+💡 Our Solution
 
-#### 🌿 Interventions Tab
-- Deploy 4 types of carbon capture:
-  - Roadside CO₂ Capture Units
-  - Vertical Gardens / Green Walls
-  - Industrial Biofilter Systems
-  - Urban Green Belts
-- Configure capacity (0.5x - 3x)
-- View cost analysis
-- Manage active interventions
+Cleovent creates a digital twin of an urban area that:
 
-#### 📈 Analytics Tab
-- Before/After comparison cards
-- Key metrics dashboard
-- 3 interactive charts:
-  - Emission projections (6 months)
-  - Emissions by zone type
-  - Cost-effectiveness analysis
-- Strategic recommendations
+Models CO₂ emissions from transport, industry, and energy use
 
-## 🎨 Design Highlights
+Simulates CO₂ dispersion across city zones
 
-- **Colors**: Green (#10b981) and Blue (#3b82f6) theme
-- **Font**: Inter (Google Fonts)
-- **Responsive**: Desktop, tablet, mobile
-- **Animations**: Fade-ins, hover effects, smooth transitions
-- **Icons**: Emoji-based for clarity
+Tests multiple carbon capture interventions digitally
 
-## 📊 Simulation Capabilities
+Predicts air-quality and carbon-reduction impact
 
-### Emission Modeling
-- Baseline emissions per zone
-- Adjustable emission factors (0-200%)
-- Wind-based dispersion
-- Real-time total calculations
+Visualizes insights through decision-support dashboards
 
-### Intervention Impact
-- Capacity-based CO₂ capture
-- Efficiency factors (65-85%)
-- Cost calculations (initial + maintenance)
-- Zone-specific effectiveness
+🎯 Key Features
 
-### Predictions
-- 6-month emission projections
-- Annual reduction estimates
-- Air quality improvement index
-- Cost per ton analysis
+📊 Emission Hotspot Mapping
+Identify high-impact zones using urban data and simulations.
 
-## 🧪 Example Use Cases
+🧪 Virtual Intervention Testing
+Evaluate roadside capture units, green walls, biofilters, and more—without physical deployment.
 
-### Scenario 1: Industrial Focus
-1. Navigate to dashboard
-2. Go to Emissions tab
-3. Increase Industrial factor to 150%
-4. Switch to Interventions tab
-5. Deploy 2-3 Biofilter Systems in industrial zones
-6. Check Analytics to see 30-40% reduction
+📈 Impact Prediction
+Quantify CO₂ reduction and air-quality improvement for each strategy.
 
-### Scenario 2: Traffic Corridors
-1. Increase Transport factor to 180%
-2. Deploy Roadside Capture Units on traffic zones
-3. Toggle heatmap to see dispersion
-4. View cost-effectiveness in Analytics
+🧠 Decision Intelligence Dashboard
+Data-driven insights for planners, policymakers, and smart city teams.
 
-### Scenario 3: Mixed Strategy
-1. Deploy multiple intervention types
-2. Adjust capacities for each
-3. Compare cost per ton in charts
-4. Follow strategic recommendations
+🔁 System Workflow
 
-## 📝 Code Structure
+Urban Data Input
+Traffic density, land use, population, and optional sensor data.
 
-```
-src/
-├── components/          # UI components
-│   ├── landing/        # Landing page
-│   ├── dashboard/      # Main dashboard
-│   ├── map/            # City map + heatmap
-│   ├── emissions/      # Emission controls
-│   ├── interventions/  # Intervention deployment
-│   └── analytics/      # Charts and analysis
-├── context/            # React Context (state)
-├── utils/              # Emission calculations
-├── data/               # Mock data
-├── styles/             # CSS design system
-├── App.jsx             # Routes
-└── main.jsx            # Entry point
-```
+CO₂ Modeling & Dispersion Simulation
+Digital twin processes emission sources and airflow patterns.
 
-## 🔧 Customization
+Capture Strategy Testing
+Multiple interventions applied virtually.
 
-### Add New Zones
-Edit `src/data/mockData.js` → `cityZones` array
+Impact Analysis
+Predicts carbon reduction and air-quality improvement.
 
-### Add Intervention Types
-Edit `src/data/mockData.js` → `interventionTypes` array
+Visualization & Insights
+Results displayed via interactive dashboards.
 
-### Modify Colors
-Edit `src/styles/index.css` → CSS variables in `:root`
+🧩 Tech Stack
 
-### Adjust Calculations
-Edit `src/utils/emissionModel.js` for emission/dispersion logic
+Frontend: React / Flutter
 
-## 🚢 Deployment
+Backend: Python (FastAPI / Django)
 
-### Option 1: Static Hosting (Recommended)
-```bash
-npm run build
-```
-Upload `dist/` folder to:
-- Vercel
-- Netlify
-- GitHub Pages
-- AWS S3 + CloudFront
+Database: PostgreSQL / Firebase
 
-### Option 2: Docker
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
-RUN npm install -g serve
-CMD ["serve", "-s", "dist", "-l", "3000"]
-```
+Cloud: AWS
 
-## 📦 Dependencies
+Core Logic:
 
-```json
-{
-  "react": "^18.3.1",
-  "react-dom": "^18.3.1",
-  "react-router-dom": "^7.1.3",
-  "chart.js": "^4.4.8",
-  "react-chartjs-2": "^5.3.0"
-}
-```
+CO₂ emission modeling
 
-## 🎓 Educational Value
+Dispersion simulation algorithms
 
-Perfect for:
-- **Hackathons**: Complete demo-ready application
-- **Academic Projects**: Evidence-based simulations
-- **Portfolios**: Full-stack skills showcase
-- **Presentations**: Professional UI/UX
+Predictive impact analysis
 
-## ✅ What's Included
+✅ Feasibility
 
-✅ All 6 core pages/modules requested
-✅ Interactive digital twin simulation
-✅ Emission modeling with wind dispersion
-✅ 4 intervention types with costs
-✅ Before/after impact analysis
-✅ Chart.js visualizations
-✅ Strategic recommendations
-✅ Responsive design
-✅ Production build ready
-✅ Clean, modular code
+Built entirely in software using existing datasets and models
 
-## 🎯 Next Steps
+Prototype validates core simulation logic
 
-1. **Test locally**: `npm run dev`
-2. **Explore features**: Try all tabs and controls
-3. **Customize**: Add your own zones/interventions
-4. **Deploy**: Build and host on your platform
-5. **Present**: Use for demos and pitches
+No hardware dependency (sensor integration optional)
 
-## 💡 Tips
+Scalable from neighborhood → city → multi-city level
 
-- Start with the landing page to understand the value proposition
-- Experiment with emission sliders to see real-time updates
-- Deploy interventions one at a time to see incremental impact
-- Use Analytics tab to make data-driven decisions
-- Check recommendations for strategic guidance
+📈 Market Viability
 
----
+Target Users:
 
-**Built with**: React + Vite + Chart.js
-**Build time**: 3.58s
-**Bundle size**: 144KB gzipped
-**Status**: ✅ Production Ready
+Smart city authorities
+
+Urban planners
+
+Environmental agencies
+
+Sustainability consultants
+
+Revenue Model:
+
+SaaS subscriptions for municipalities
+
+Planning & consulting licenses
+
+API access for urban-tech platforms
+
+🌱 Scalability & Impact
+
+Easily adaptable to different cities and regions
+
+Supports climate-resilient urban planning
+
+Reduces trial-and-error deployment costs
+
+Accelerates data-driven carbon reduction efforts
+
+🏁 Vision
+
+Cleovent aims to become the standard simulation layer for urban climate action, enabling cities worldwide to design smarter, cleaner, and more sustainable futures—before concrete is poured and money is spent.
+
+👥 Team
+
+Team Name: Green Hat
+Project: Cleovent
